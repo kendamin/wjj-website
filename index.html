@@ -254,7 +254,8 @@
   .msg-close{width:40px;height:40px;padding:0;border-radius:50%;border:2px solid var(--line);background:#fff;color:var(--ink);font-size:18px;font-weight:800;cursor:pointer}
   .msg .btn{justify-content:center;width:100%;touch-action:manipulation}
   .msg .btn-line{color:var(--red-deep)}
-  .msg-note{font-size:13px;color:var(--muted);background:var(--cream);border-radius:12px;padding:10px 12px;line-height:1.45}
+  .msg-note{font-size:14px;color:var(--ink);background:var(--cream);border-radius:12px;padding:10px 12px;line-height:1.45;display:grid;gap:4px}
+  .msg-note-small{font-size:12px;color:var(--muted)}
   .msg [hidden]{display:none}
   @media (max-width:600px){
     .msg:modal{margin:auto auto 0;width:100dvw;max-width:100dvw;border-radius:22px 22px 0 0}
@@ -519,7 +520,10 @@
     <a class="btn btn-gold" id="msgWeb" href="https://m.me/WJJRICEMILL" target="_blank" rel="noopener">Message on Facebook</a>
     <a class="btn btn-line js-tel" data-needs-phone hidden href="#">Call us</a>
     <a class="btn btn-line js-sms" data-needs-phone hidden href="#">Send a text</a>
-    <p class="msg-note" id="msgNote" hidden>Opened this page from Facebook or Messenger? If Messenger doesn't open, tap <strong>•••</strong> at the top and choose <strong>Open in browser</strong>, then try again.</p>
+    <div class="msg-note" id="msgNote" hidden>
+      <p>See <strong>"Get the Messenger app"</strong>? Tap <strong>Open in Messenger</strong> below it instead.</p>
+      <p class="msg-note-small">Still not opening? Tap <strong>•••</strong> and choose <strong>Open in browser</strong>.</p>
+    </div>
   </div>
 </dialog>
 
