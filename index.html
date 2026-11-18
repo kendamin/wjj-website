@@ -240,6 +240,26 @@
   .lightbox img{max-width:100%;max-height:88dvh;width:auto;height:auto;border-radius:10px}
   .lightbox form{position:fixed;top:16px;right:16px}
   .lightbox button{width:46px;height:46px;border-radius:50%;border:0;background:var(--gold);color:var(--red-dark);font-size:22px;font-weight:800;cursor:pointer}
+
+  /* Message chooser: native modal <dialog>. Facebook/Messenger's in-app browser often won't hand
+     m.me links to the Messenger app, so we offer the app link, the web link and phone options. */
+  .msg{margin:auto;border:0;padding:0;border-radius:22px;width:min(420px,calc(100dvw - 24px));background:var(--rice);color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+  .msg:modal{overscroll-behavior:contain}
+  .msg::backdrop{background:rgba(30,6,6,.6);overflow:hidden;overscroll-behavior:contain}
+  .msg-inner{padding:24px 22px 22px;display:grid;gap:12px}
+  .msg-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+  .msg h2{font-size:24px;line-height:1.15;color:var(--red-deep)}
+  .msg-head p{color:var(--muted);font-size:14px;margin-top:4px}
+  .msg-head form{flex:none}
+  .msg-close{width:40px;height:40px;padding:0;border-radius:50%;border:2px solid var(--line);background:#fff;color:var(--ink);font-size:18px;font-weight:800;cursor:pointer}
+  .msg .btn{justify-content:center;width:100%;touch-action:manipulation}
+  .msg .btn-line{color:var(--red-deep)}
+  .msg-note{font-size:13px;color:var(--muted);background:var(--cream);border-radius:12px;padding:10px 12px;line-height:1.45}
+  .msg [hidden]{display:none}
+  @media (max-width:600px){
+    .msg:modal{margin:auto auto 0;width:100dvw;max-width:100dvw;border-radius:22px 22px 0 0}
+    .msg-inner{padding-bottom:max(22px,env(safe-area-inset-bottom))}
+  }
 </style>
 </head>
 <body>
@@ -488,6 +508,21 @@
   <a href="https://www.google.com/maps/dir/?api=1&destination=6.5196146,124.635027" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Directions</a>
 </nav>
 
+<dialog class="msg" id="msgDialog" closedby="any" aria-labelledby="msg-title">
+  <div class="msg-inner">
+    <div class="msg-head">
+      <div><h2 id="msg-title">Message WJJ</h2><p>Order rice or ask about milling. We reply on Messenger.</p></div>
+      <form method="dialog"><button class="msg-close" aria-label="Close">✕</button></form>
+    </div>
+    <!-- opens the Messenger app directly (phones only; shown by the script) -->
+    <a class="btn btn-red" id="msgApp" hidden href="fb-messenger://user-thread/61559142373109">Open Messenger app</a>
+    <a class="btn btn-gold" id="msgWeb" href="https://m.me/WJJRICEMILL" target="_blank" rel="noopener">Message on Facebook</a>
+    <a class="btn btn-line js-tel" data-needs-phone hidden href="#">Call us</a>
+    <a class="btn btn-line js-sms" data-needs-phone hidden href="#">Send a text</a>
+    <p class="msg-note" id="msgNote" hidden>Opened this page from Facebook or Messenger? If Messenger doesn't open, tap <strong>•••</strong> at the top and choose <strong>Open in browser</strong>, then try again.</p>
+  </div>
+</dialog>
+
 <dialog class="lightbox" id="lightbox" closedby="any" aria-label="Photo viewer">
   <form method="dialog"><button aria-label="Close photo" autofocus>✕</button></form>
   <img id="lbImg" alt="">
@@ -500,8 +535,30 @@
   if (PHONE) {
     const tel = "tel:+63" + PHONE.replace(/\D/g, "").replace(/^0/, "");
     document.querySelectorAll(".js-tel").forEach(a => { a.href = tel; if (!a.textContent.trim()) a.textContent = PHONE; });
+    document.querySelectorAll(".js-sms").forEach(a => { a.href = tel.replace("tel:", "sms:"); });
     document.querySelectorAll("[data-needs-phone]").forEach(el => el.hidden = false);
     const cb = document.querySelector(".contact .js-tel"); if (cb) cb.textContent = "Call " + PHONE;
+  }
+
+  // Message chooser: every m.me button opens the chooser instead of jumping straight to Facebook.
+  // Without JavaScript the plain m.me links still work.
+  const msgDialog = document.getElementById("msgDialog");
+  const isPhone = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && /Macintosh/.test(navigator.userAgent));
+  const inFacebookApp = /FBAN|FBAV|FB_IAB|FBIOS|Messenger|Instagram/i.test(navigator.userAgent);
+  if (isPhone) document.getElementById("msgApp").hidden = false;           // app link only works on phones
+  if (inFacebookApp) document.getElementById("msgNote").hidden = false;   // tip only where the problem happens
+  document.addEventListener("click", e => {
+    const a = e.target.closest('a[href^="https://m.me/"]');
+    if (!a || msgDialog.contains(a)) return;
+    e.preventDefault();
+    msgDialog.showModal();
+    msgDialog.querySelector(".btn:not([hidden])")?.focus();          // start on the main action, not ✕
+  });
+  if (!("closedBy" in HTMLDialogElement.prototype)) {             // Safari: tap outside to close
+    let downOutside = false;
+    const outside = e => { const r = msgDialog.getBoundingClientRect(); return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom; };
+    msgDialog.addEventListener("pointerdown", e => { downOutside = outside(e); });
+    msgDialog.addEventListener("pointerup", e => { if (downOutside && outside(e)) msgDialog.close(); });
   }
 
   // highlight today's hours
