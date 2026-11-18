@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Concept preview: keep out of Google until WJJ approves. Remove this line when it becomes their official site. -->
+<meta name="robots" content="noindex, nofollow">
+<title>WJJ Enterprises and Rice Mill — Premium Mindanao Rice from Norala, South Cotabato</title>
+<meta name="description" content="WJJ Enterprises and Rice Mill, Brgy. Lapuz, Norala, South Cotabato. Premium Mindanao milled rice: V-160 Ilang-Ilang Jasmine, V-160 Premium Plus Jasmine and Tonner Banay-Banay, in 25 kg sacks. Wholesale prices for walk-in buyers.">
+<link rel="icon" href="images/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#D8232A; --red-deep:#A3141B; --red-dark:#5E0A0E;
+    /* leaf darkened from #4E8A26 so small green text passes 4.5:1 on light backgrounds */
+    --gold:#F7C325; --gold-deep:#E0A800; --leaf:#3F7A1E; --leaf-light:#8DC63F;
+    --rice:#FBF6EA; --cream:#F3EAD3; --ink:#2A1A12; --muted:#6E5E52; --line:#E6D9BC;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+  body{background:var(--rice);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;font-size-adjust:from-font}
+  h1,h2,h3,.slab{font-size-adjust:cap-height from-font}
+  img{display:block;max-width:100%;height:auto}
+  a{color:inherit}
+  :where(a:any-link,button):focus-visible{outline:3px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 6px var(--gold);border-radius:6px}
+  .skip-link{position:fixed;left:12px;top:-60px;z-index:200;background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;font-weight:700;text-decoration:none}
+  .skip-link:focus{top:12px}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+  section{padding:96px 0;scroll-margin-top:68px}
+  h1,h2,h3,.slab{font-family:"Alfa Slab One",Georgia,serif;font-weight:400}
+  h2{font-size:clamp(32px,5vw,50px);line-height:1.08;color:var(--red-deep)}
+  .kicker{display:inline-flex;align-items:center;gap:10px;color:var(--leaf);font:800 13px Inter;letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px}
+  .kicker::before{content:"";width:22px;height:10px;border-radius:0 10px 0 10px;background:var(--leaf-light)}
+  .lead{color:var(--muted);font-size:18px;max-width:580px}
+  .btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font:800 15px Inter;letter-spacing:.02em;padding:15px 24px;border-radius:999px;transition:transform .15s,background .15s,box-shadow .15s;border:2px solid transparent;cursor:pointer}
+  .btn svg{width:19px;height:19px;flex:none}
+  .btn-red{background:var(--red);color:#fff;box-shadow:0 10px 26px rgba(216,35,42,.3)}
+  .btn-red:hover{background:var(--red-deep);transform:translateY(-2px)}
+  .btn-gold{background:var(--gold);color:var(--red-dark);box-shadow:0 10px 26px rgba(224,168,0,.35)}
+  .btn-gold:hover{background:#FFD447;transform:translateY(-2px)}
+  .btn-line{border-color:currentColor}
+  .btn-line:hover{transform:translateY(-2px)}
+  [data-needs-phone][hidden]{display:none!important}
+
+  /* header */
+  header{position:fixed;inset:0 0 auto;z-index:50;background:rgba(251,246,234,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
+  .brand img{width:44px;height:44px;border-radius:50%;flex:none}
+  .brand b{font:400 24px "Alfa Slab One";color:var(--red);line-height:1}
+  .brand small{display:block;font:700 10px Inter;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+  .nav > *{flex-shrink:0;white-space:nowrap}
+  .nav .btn{padding:10px 18px;font-size:14px}
+  @media (max-width:420px){.nav > .btn{display:none}}
+  /* one nav list: a popover menu when the links don't fit, inline when they do (header.is-wide) */
+  .site-nav{margin-left:auto}
+  .menu-button{anchor-name:--menu-button;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 16px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--red-deep);font:800 14px Inter;cursor:pointer}
+  .menu-button svg{width:20px;height:20px}
+  .site-menu{list-style:none}
+  .site-menu a{text-decoration:none;color:var(--muted);font-weight:600;font-size:15px}
+  .site-menu a:hover{color:var(--red)}
+  .site-menu[popover]{position:fixed;inset:auto;top:76px;top:anchor(--menu-button bottom);right:16px;margin:8px 0 0;width:min(80dvw,18rem);max-height:calc(100dvh - 6rem);overflow:auto;padding:8px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 22px 44px rgba(94,10,14,.18)}
+  .site-menu[popover] a{display:block;padding:12px 14px;border-radius:10px;font-size:16px;color:var(--ink)}
+  .site-menu[popover] a:hover{background:var(--cream)}
+  header.is-wide .menu-button{display:none}
+  header.is-wide .site-menu{position:static;display:flex;gap:26px;width:auto;max-height:none;overflow:visible;margin:0;padding:0;border:0;background:transparent;box-shadow:none}
+  header.is-measuring *{transition:none!important}
+  /* no Popover API: keep the old behaviour (links inline on wide screens, hidden on phones; the bottom bar still works) */
+  header.no-popover .menu-button{display:none}
+  header.no-popover .site-menu{display:flex;gap:26px}
+  @media (max-width:900px){header.no-popover .site-menu{display:none}}
+
+  /* hero */
+  .hero{position:relative;padding:130px 0 90px;overflow:hidden;color:#fff;
+    background:
+      radial-gradient(closest-side at 72% 45%, rgba(255,214,90,.35), transparent 70%),
+      repeating-conic-gradient(from 0deg at 72% 45%, var(--red) 0deg 6deg, #C41C22 6deg 12deg)}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:70px;background:var(--rice);clip-path:ellipse(75% 100% at 50% 100%)}
+  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .hero h1{font-size:clamp(76px,13vw,150px);line-height:.9;color:var(--gold);-webkit-text-stroke:3px var(--red-dark);paint-order:stroke fill;text-shadow:0 6px 0 var(--red-dark)}
+  .hero .sub{font:800 clamp(15px,2.2vw,20px) Inter;letter-spacing:.18em;text-transform:uppercase;margin:12px 0 18px}
+  .smile{display:inline-block;font:400 clamp(20px,3vw,28px) "Alfa Slab One";background:var(--gold);color:var(--red-dark);padding:8px 18px;border-radius:10px;transform:rotate(-1.5deg);box-shadow:0 6px 0 var(--red-dark);margin-bottom:22px}
+  .hero .lead{color:rgba(255,255,255,.92)}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 30px}
+  .chips span{display:inline-flex;align-items:center;gap:8px;font:700 14px Inter;padding:8px 14px;border-radius:999px;background:rgba(94,10,14,.45);border:1px solid rgba(255,255,255,.25)}
+  .chips span::before{content:"✓";color:var(--gold);font-weight:900}
+  .ctas{display:flex;flex-wrap:wrap;gap:12px}
+  .hero .btn-line{color:#fff}
+  .hero-photo{position:relative;max-width:440px;justify-self:center;width:100%}
+  .hero-photo .frame{border-radius:22px;overflow:hidden;border:6px solid #fff;box-shadow:0 30px 70px rgba(60,0,0,.45);transform:rotate(2deg);aspect-ratio:4/5;background:#fff}
+  .hero-photo img{width:100%;height:100%;object-fit:cover}
+  .seal{position:absolute;left:-26px;bottom:28px;width:118px;height:118px;border-radius:50%;background:var(--gold);color:var(--red-dark);display:grid;place-items:center;text-align:center;font:400 15px/1.1 "Alfa Slab One";box-shadow:0 14px 30px rgba(60,0,0,.35);border:4px dashed var(--red-dark);transform:rotate(-10deg)}
+  .seal b{display:block;font-size:30px}
+  @media (max-width:900px){
+    .hero{padding-top:110px}
+    .hero-grid{grid-template-columns:1fr}
+    .hero-photo{max-width:360px}
+    .seal{left:-8px;width:100px;height:100px;font-size:13px}
+    .seal b{font-size:26px}
+  }
+
+  /* info strip */
+  .strip{padding:0;margin-top:-10px;position:relative;z-index:2}
+  .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 18px 40px rgba(94,10,14,.08);padding:0}
+  .strip div{padding:20px 22px;border-right:1px solid var(--line)}
+  .strip div:last-child{border-right:0}
+  .strip small{display:block;font:800 11px Inter;letter-spacing:.16em;text-transform:uppercase;color:var(--leaf)}
+  .strip strong{font:700 16px Inter;color:var(--ink)}
+  @media (max-width:820px){
+    .strip .wrap{grid-template-columns:1fr 1fr;margin:0 20px;width:auto}
+    .strip div:nth-child(2){border-right:0}
+    .strip div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  }
+
+  /* products */
+  .sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px 40px;margin-bottom:44px}
+  .products{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .prod{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+  .prod:hover{transform:translateY(-5px);box-shadow:0 22px 44px rgba(94,10,14,.12)}
+  .prod .pic{aspect-ratio:1/1;overflow:hidden;position:relative}
+  .prod .pic img{width:100%;height:100%;object-fit:contain;padding:18px 18px 0;filter:drop-shadow(0 14px 18px rgba(0,0,0,.25))}
+  .prod.red .pic{background:var(--red)}
+  .prod.green .pic{background:#DDEBC8}
+  .prod.yellow .pic{background:#FFF0B8}
+  .tag{position:absolute;top:14px;left:14px;font:800 12px Inter;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:var(--gold);color:var(--red-dark)}
+  .prod .body{padding:22px 24px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .prod h3{font-size:23px;line-height:1.15;color:var(--red-deep)}
+  .prod .variety{font:700 13px Inter;letter-spacing:.1em;text-transform:uppercase;color:var(--leaf)}
+  .prod p{color:var(--muted);font-size:15px}
+  .prod .row{margin-top:auto;padding-top:14px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+  .prod .price{font:700 15px Inter}
+  .prod .price small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+  .prod .btn{padding:10px 16px;font-size:14px}
+  @media (max-width:900px){.products{grid-template-columns:1fr 1fr}}
+  @media (max-width:600px){.products{grid-template-columns:1fr}}
+
+  /* wholesale */
+  .wholesale{background:var(--leaf);color:#fff;position:relative;overflow:hidden;
+    background-image:radial-gradient(600px 400px at 100% 0,rgba(141,198,63,.5),transparent 70%)}
+  .ws-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .wholesale h2{color:#fff}
+  .wholesale .kicker{color:#fff}
+  .wholesale .kicker::before{background:var(--gold)}
+  .wholesale .lead{color:rgba(255,255,255,.9)}
+  .big-num{display:flex;align-items:baseline;gap:14px;margin:26px 0 8px}
+  .big-num b{font:400 clamp(70px,10vw,110px)/1 "Alfa Slab One";color:var(--gold)}
+  .big-num span{font:700 18px Inter;line-height:1.3}
+  .steps{list-style:none;display:grid;gap:12px;margin:26px 0 30px;counter-reset:s}
+  .steps li{display:flex;gap:14px;align-items:flex-start;counter-increment:s}
+  .steps li::before{content:counter(s);flex:0 0 30px;height:30px;border-radius:50%;background:var(--gold);color:var(--red-dark);display:grid;place-items:center;font:400 15px "Alfa Slab One"}
+  .ws-photo{border-radius:var(--radius);overflow:hidden;border:6px solid rgba(255,255,255,.9);box-shadow:0 26px 60px rgba(0,0,0,.25);aspect-ratio:4/3}
+  .ws-photo img{width:100%;height:100%;object-fit:cover}
+  @media (max-width:900px){.ws-grid{grid-template-columns:1fr}}
+
+  /* mill */
+  .mill-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .mill-pics{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
+  .mill-pics figure{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);aspect-ratio:3/4}
+  .mill-pics figure:first-child{aspect-ratio:auto;grid-row:span 2}
+  .mill-pics img{width:100%;height:100%;object-fit:cover}
+  .checks{list-style:none;margin:24px 0 30px;display:grid;gap:12px}
+  .checks li{display:flex;gap:12px;align-items:flex-start;color:var(--muted)}
+  .checks li::before{content:"";flex:0 0 22px;height:22px;margin-top:2px;border-radius:50%;background:var(--leaf) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'%3E%3Cpath d='M5 12l5 5L19 7'/%3E%3C/svg%3E") center/12px no-repeat}
+  .checks b{color:var(--ink)}
+  @media (max-width:900px){.mill-grid{grid-template-columns:1fr}}
+
+  /* gallery */
+  .gallery{columns:4 220px;column-gap:14px}
+  .gallery button{display:block;width:100%;margin-bottom:14px;break-inside:avoid;border:1px solid var(--line);border-radius:12px;overflow:hidden;padding:0;background:#fff;cursor:zoom-in;position:relative}
+  .gallery img{width:100%;transition:transform .4s}
+  .gallery button:hover img{transform:scale(1.04)}
+  .gallery button::after{content:"";position:absolute;inset:0;border-radius:12px;box-shadow:inset 0 0 0 0 var(--gold);transition:box-shadow .2s}
+  .gallery button:hover::after{box-shadow:inset 0 0 0 4px var(--gold)}
+  .social-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .social-row .btn-line{color:var(--red-deep)}
+
+  /* reviews */
+  .reviews-box{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px}
+  .score{background:var(--red);color:#fff;border-radius:var(--radius);padding:34px;background-image:repeating-conic-gradient(from 0deg at 100% 0%, rgba(255,255,255,.07) 0deg 6deg, transparent 6deg 12deg)}
+  .score h3{font-size:28px;line-height:1.15;color:var(--gold);margin-bottom:12px}
+  .score p{opacity:.92}
+  .stars{color:var(--gold);letter-spacing:3px;font-size:26px;margin-bottom:8px}
+  .score .stars{color:rgba(255,255,255,.35)}
+  .review-cta{background:#fff;border:2px dashed var(--line);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;justify-content:center;gap:16px}
+  .review-cta strong{font:400 22px "Alfa Slab One";color:var(--red-deep)}
+  .review-cta p{color:var(--muted)}
+  .review-cta .btn{align-self:flex-start}
+  @media (max-width:860px){.reviews-box{grid-template-columns:1fr}}
+
+  /* location */
+  .loc-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:24px}
+  .map{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);min-height:440px;background:var(--cream)}
+  .map iframe{width:100%;height:100%;min-height:440px;border:0;display:block}
+  .loc-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:20px}
+  .loc-card small{display:block;font:800 11px Inter;letter-spacing:.16em;text-transform:uppercase;color:var(--leaf);margin-bottom:2px}
+  .loc-card a:not(.btn){text-decoration:none;color:var(--red-deep);font-weight:600}
+  .hours{width:100%;border-collapse:collapse;font-size:15px}
+  .hours td{padding:3px 0}
+  .hours td:last-child{text-align:right;font-weight:600}
+  .hours tr.today td{color:var(--red);font-weight:800}
+  .note{font-size:12px;color:var(--muted)}
+  @media (max-width:860px){.loc-grid{grid-template-columns:1fr}.map,.map iframe{min-height:320px}}
+
+  /* contact */
+  .contact{text-align:center;color:#fff;position:relative;overflow:hidden;
+    background:radial-gradient(closest-side at 50% 0%, rgba(255,214,90,.35), transparent 80%),
+      repeating-conic-gradient(from 0deg at 50% 0%, var(--red) 0deg 6deg, #C41C22 6deg 12deg)}
+  .contact h2{color:var(--gold);font-size:clamp(38px,6.5vw,72px);-webkit-text-stroke:2px var(--red-dark);paint-order:stroke fill;text-shadow:0 5px 0 var(--red-dark)}
+  .contact .lead{color:rgba(255,255,255,.92);margin:18px auto 32px}
+  .contact .ctas{justify-content:center}
+  .contact .btn-line{color:#fff}
+  .contact-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px;margin-top:30px;color:rgba(255,255,255,.85);font-size:15px}
+  .contact-links a{text-decoration:none}
+  .contact-links a:hover{color:var(--gold)}
+
+  footer{background:var(--red-dark);color:rgba(255,255,255,.75);padding:24px 0 28px;font-size:13px}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+  footer a{color:var(--gold)}
+
+  /* mobile action bar */
+  .mbar{display:none}
+  @media (max-width:700px){
+    .mbar{display:flex;position:fixed;inset:auto 0 0;z-index:60;background:#fff;border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(94,10,14,.1)}
+    .mbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 0 12px;text-decoration:none;font:800 11px Inter;letter-spacing:.08em;text-transform:uppercase;color:var(--red-deep)}
+    .mbar a.primary{background:var(--red);color:#fff}
+    .mbar svg{width:21px;height:21px}
+    footer{padding-bottom:92px}
+  }
+
+  /* lightbox */
+  /* native <dialog>: Esc, back gesture, focus handling and inert page come from the browser */
+  .lightbox{margin:auto;border:0;padding:0;background:transparent;max-width:calc(100dvw - 32px);max-height:calc(100dvh - 32px);overflow:visible}
+  .lightbox[open]{display:grid;place-items:center}
+  .lightbox:modal{overscroll-behavior:contain}
+  .lightbox::backdrop{background:rgba(30,6,6,.94);overflow:hidden;overscroll-behavior:contain}
+  .lightbox img{max-width:100%;max-height:88dvh;width:auto;height:auto;border-radius:10px}
+  .lightbox form{position:fixed;top:16px;right:16px}
+  .lightbox button{width:46px;height:46px;border-radius:50%;border:0;background:var(--gold);color:var(--red-dark);font-size:22px;font-weight:800;cursor:pointer}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#rice-title">Skip to our rice</a>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><img src="images/logo-96.jpg" alt="WJJ Enterprises and Rice Mill logo" width="96" height="96"><span><b>WJJ</b><small>Enterprises &amp; Rice Mill</small></span></a>
+    <nav class="site-nav" aria-label="Primary">
+      <button class="menu-button" type="button" popovertarget="site-menu" aria-controls="site-menu"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button>
+      <ul id="site-menu" class="site-menu" popover="auto">
+      <li><a href="#rice">Our Rice</a></li>
+      <li><a href="#wholesale">Wholesale</a></li>
+      <li><a href="#mill">The Mill</a></li>
+      <li><a href="#photos">Photos</a></li>
+      <li><a href="#location">Location</a></li>
+    </ul></nav>
+    <a class="btn btn-red" href="https://m.me/WJJRICEMILL" target="_blank" rel="noopener">Order Now</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>WJJ</h1>
+        <div class="sub">Enterprises &amp; Rice Mill</div>
+        <div class="smile">Basta WJJ Rice, Doble ang Smile!</div>
+        <p class="lead">Excellent eating-quality Mindanao milled rice, direct from our rice mill in Norala, South Cotabato, the Rice Bowl of the South.</p>
+        <div class="chips"><span>New harvest</span><span>100% local rice</span><span>Premium quality</span></div>
+        <div class="ctas">
+          <a class="btn btn-gold" href="https://m.me/WJJRICEMILL" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.2-4.5A9 9 0 1 1 21 12z"/></svg>
+            Message us for a quote</a>
+          <a class="btn btn-line" href="#rice">See our rice</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <div class="frame"><img src="images/post-mar2026.jpg" alt="WJJ Ilang-Ilang V-160 Jasmine Rice 25 kg sack beside a bowl of milled rice" fetchpriority="high" width="1080" height="1350"></div>
+        <div class="seal"><span><b>25 kg</b>sacks</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO STRIP -->
+  <div class="strip">
+    <div class="wrap">
+      <div><small>Rice Mill</small><strong>Brgy. Lapuz, Norala</strong></div>
+      <div><small>Province</small><strong>South Cotabato</strong></div>
+      <div><small>Open daily</small><strong id="todayHours">8:00 AM – 5:30 PM</strong></div>
+      <div><small>Orders</small><strong>Message our Facebook page</strong></div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <section id="rice">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="kicker">Our rice</div><h2 id="rice-title" tabindex="-1">Premium Mindanao Rice</h2></div>
+        <p class="lead">Milled at our own rice mill in Norala and packed in 25 kg sacks. Message us for today's price.</p>
+      </div>
+      <!-- Prices are not posted on their Facebook page. Ask the owner for current per-sack prices and replace "Message for price". -->
+      <div class="products">
+        <article class="prod red">
+          <div class="pic"><img src="images/p-ilang.jpg" alt="WJJ Ilang-Ilang V-160 Jasmine Rice, red 25 kg sack" loading="lazy" width="540" height="1018"><span class="tag">New</span></div>
+          <div class="body">
+            <div class="variety">V-160 Jasmine · Premium Quality</div>
+            <h3>Ilang-Ilang Jasmine Rice</h3>
+            <p>Our newest label. Imported-rice quality, grown and milled 100% locally, and at a lower price.</p>
+            <div class="row"><div class="price">Message for price<small>25 kg sack</small></div>
+              <a class="btn btn-red" href="https://m.me/WJJRICEMILL" target="_blank" rel="noopener">Order</a></div>
+          </div>
+        </article>
+        <article class="prod green">
+          <div class="pic"><img src="images/p-premium.jpg" alt="WJJ Premium Plus V-160 Jasmine Rice, green and red 25 kg sack" loading="lazy" width="430" height="488"></div>
+          <div class="body">
+            <div class="variety">V-160 Jasmine · Premium Plus</div>
+            <h3>Premium Plus Jasmine Rice</h3>
+            <p>Quality milled V-160 jasmine rice, direct from the rice mill. Available at wholesale price.</p>
+            <div class="row"><div class="price">Message for price<small>25 kg sack</small></div>
+              <a class="btn btn-red" href="https://m.me/WJJRICEMILL" target="_blank" rel="noopener">Order</a></div>
+          </div>
+        </article>
+        <article class="prod yellow">
+          <div class="pic"><img src="images/p-tonner.jpg" alt="WJJ Tonner Banay-Banay Rice, yellow 25 kg sack" loading="lazy" width="410" height="488"></div>
+          <div class="body">
+            <div class="variety">Tonner · Premium Quality</div>
+            <h3>Tonner Banay-Banay Rice</h3>
+            <p>Premium quality Mindanao milled rice for everyday meals. Available at wholesale price.</p>
+            <div class="row"><div class="price">Message for price<small>25 kg sack</small></div>
+              <a class="btn btn-red" href="https://m.me/WJJRICEMILL" target="_blank" rel="noopener">Order</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHOLESALE -->
+  <section class="wholesale" id="wholesale">
+    <div class="wrap ws-grid">
+      <div>
+        <div class="kicker">For resellers &amp; stores</div>
+        <h2>Wholesale Price<br>for Walk-in Buyers</h2>
+        <div class="big-num"><b>200</b><span>sacks minimum<br>(25 kg each)</span></div>
+        <p class="lead">We offer a very special price for walk-in buyers who order in bulk, straight from the mill.</p>
+        <ol class="steps">
+          <li>Message our Facebook page with the rice you want and how many sacks.</li>
+          <li>We'll send you our wholesale quote.</li>
+          <li>Pick up at the rice mill in Brgy. Lapuz, Norala.</li>
+        </ol>
+        <a class="btn btn-gold" href="https://m.me/WJJRICEMILL" target="_blank" rel="noopener">Ask for a wholesale quote</a>
+      </div>
+      <div class="ws-photo"><img src="images/wholesale.jpg" alt="Stacks of WJJ rice sacks in the warehouse" loading="lazy" width="940" height="788"></div>
+    </div>
+  </section>
+
+  <!-- THE MILL -->
+  <section id="mill">
+    <div class="wrap mill-grid">
+      <div class="mill-pics">
+        <figure><img src="images/mill-dryers.jpg" alt="Grain dryers inside the WJJ rice mill" loading="lazy" width="1600" height="1200"></figure>
+        <figure><img src="images/rice-grains.jpg" alt="Handfuls of freshly milled WJJ rice" loading="lazy" width="1152" height="1020"></figure>
+        <figure><img src="images/mill-compound.jpg" alt="WJJ rice mill compound in Norala at sunset" loading="lazy" width="1600" height="1200"></figure>
+      </div>
+      <div>
+        <div class="kicker">From paddy to premium rice</div>
+        <h2>Quality begins at our rice mill</h2>
+        <ul class="checks">
+          <li><span><b>Modern processing.</b> Our own dryers and milling line in Norala.</span></li>
+          <li><span><b>Careful handling</b> from the field to the sack.</span></li>
+          <li><span><b>Direct from the mill,</b> so you skip the middlemen.</span></li>
+          <li><span><b>Also at WJJ Buy and Sell,</b> National Highway, Isulan, Sultan Kudarat.</span></li>
+        </ul>
+        <a class="btn btn-red" href="https://www.facebook.com/WJJRICEMILL" target="_blank" rel="noopener">Watch the mill on Facebook</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="photos" style="padding-top:24px">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="kicker">Photos</div><h2>Fresh from the Mill</h2></div>
+        <p class="lead">Tap any photo to see it bigger.</p>
+      </div>
+      <div class="gallery" id="gallery">
+        <button><img src="images/mill-dryers.jpg" alt="Grain dryers inside the rice mill" loading="lazy" width="1600" height="1200"></button>
+        <button><img src="images/ilang-ilang.jpg" alt="WJJ Ilang-Ilang rice grains and sack, front and back" loading="lazy" width="1152" height="2048"></button>
+        <button><img src="images/jasmine-sack.jpg" alt="WJJ Premium Plus V-160 Jasmine Rice at the mill" loading="lazy" width="940" height="788"></button>
+        <button><img src="images/cover.png" alt="WJJ Enterprises and Rice Mill, Norala, South Cotabato" loading="lazy" width="851" height="315"></button>
+        <button><img src="images/tonner-sack.jpg" alt="WJJ Tonner Banay-Banay Rice at the mill" loading="lazy" width="940" height="788"></button>
+        <button><img src="images/post-mar2026.jpg" alt="WJJ Ilang-Ilang Jasmine Rice sack" loading="lazy" width="1080" height="1350"></button>
+        <button><img src="images/wholesale.jpg" alt="Rice sacks stacked in the WJJ warehouse" loading="lazy" width="940" height="788"></button>
+        <button><img src="images/mill-compound.jpg" alt="WJJ rice mill compound" loading="lazy" width="1600" height="1200"></button>
+      </div>
+      <div class="social-row">
+        <a class="btn btn-line" href="https://www.facebook.com/WJJRICEMILL" target="_blank" rel="noopener">More on Facebook</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" style="padding-top:24px">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="kicker">Reviews</div><h2>Tried WJJ Rice?</h2></div>
+      </div>
+      <!-- No Google reviews yet (checked Nov 19, 2026). When reviews come in, show the real rating and reviewer first names + initials here. Never write quotes. -->
+      <div class="reviews-box">
+        <div class="score">
+          <div class="stars">★★★★★</div>
+          <h3>Be the first to review us on Google</h3>
+          <p>Your review helps other families and resellers find good local rice.</p>
+        </div>
+        <div class="review-cta">
+          <strong>Share your experience</strong>
+          <p>Tell others how you liked our rice, our service, or buying direct from the mill.</p>
+          <a class="btn btn-red" href="https://search.google.com/local/writereview?placeid=ChIJcTsJd3AF-DIRFXaxGGg4Qsg" target="_blank" rel="noopener">Write a Google review</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section id="location" style="padding-top:24px">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="kicker">Visit the mill</div><h2>Find Us</h2></div>
+      </div>
+      <div class="loc-grid">
+        <div class="map">
+          <iframe title="WJJ Enterprises and Rice Mill on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=WJJ%20Enterprises%20and%20Rice%20Mill%2C%20Norala%2C%20South%20Cotabato&ll=6.5196146,124.635027&z=16&output=embed"></iframe>
+        </div>
+        <div class="loc-card">
+          <div><small>Rice Mill</small><p>WJJ Enterprises, Brgy. Lapuz, Norala, South Cotabato 9508</p></div>
+          <div><small>Also at</small><p>WJJ Buy and Sell, National Highway, Isulan, Sultan Kudarat</p></div>
+          <div><small>Hours</small>
+            <!-- Hours from Google Maps (Nov 2026). Confirm with the owner. -->
+            <table class="hours" id="hours">
+              <tr data-d="1"><td>Monday</td><td>8:00 AM – 5:30 PM</td></tr>
+              <tr data-d="2"><td>Tuesday</td><td>8:00 AM – 5:30 PM</td></tr>
+              <tr data-d="3"><td>Wednesday</td><td>8:00 AM – 5:30 PM</td></tr>
+              <tr data-d="4"><td>Thursday</td><td>8:30 AM – 5:30 PM</td></tr>
+              <tr data-d="5"><td>Friday</td><td>8:30 AM – 5:30 PM</td></tr>
+              <tr data-d="6"><td>Saturday</td><td>8:30 AM – 5:30 PM</td></tr>
+              <tr data-d="0"><td>Sunday</td><td>8:00 AM – 5:30 PM</td></tr>
+            </table>
+          </div>
+          <div><small>Contact</small><p><a href="https://m.me/WJJRICEMILL" target="_blank" rel="noopener">Message us on Facebook</a><span data-needs-phone hidden><br><a class="js-tel" href="#"></a></span></p></div>
+          <a class="btn btn-red" href="https://www.google.com/maps/dir/?api=1&destination=6.5196146,124.635027" target="_blank" rel="noopener">Get directions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Order your<br>WJJ Rice today!</h2>
+      <p class="lead">Message us the rice you want and how many sacks, and we'll send you a quote. Walk-in buyers are welcome at the mill.</p>
+      <div class="ctas">
+        <a class="btn btn-gold" href="https://m.me/WJJRICEMILL" target="_blank" rel="noopener">Message us on Facebook</a>
+        <a class="btn btn-line js-tel" data-needs-phone hidden href="#">Call us</a>
+        <a class="btn btn-line" href="https://www.google.com/maps/dir/?api=1&destination=6.5196146,124.635027" target="_blank" rel="noopener">Get directions</a>
+      </div>
+      <div class="contact-links">
+        <a href="https://www.facebook.com/WJJRICEMILL" target="_blank" rel="noopener">facebook.com/WJJRICEMILL</a>
+        <span>Brgy. Lapuz, Norala, South Cotabato</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> WJJ Enterprises and Rice Mill · Norala, South Cotabato</span>
+    <span>Watermark by <a href="https://kendamin.github.io" target="_blank" rel="noopener">Ken Abuda</a></span>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Quick actions">
+  <a class="js-tel" data-needs-phone hidden href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call</a>
+  <a class="primary" href="https://m.me/WJJRICEMILL" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.2-4.5A9 9 0 1 1 21 12z"/></svg>Message</a>
+  <a href="https://www.google.com/maps/dir/?api=1&destination=6.5196146,124.635027" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Directions</a>
+</nav>
+
+<dialog class="lightbox" id="lightbox" closedby="any" aria-label="Photo viewer">
+  <form method="dialog"><button aria-label="Close photo" autofocus>✕</button></form>
+  <img id="lbImg" alt="">
+</dialog>
+
+<script>
+  // PHONE: not confirmed yet (the number on Google Maps looks like a placeholder).
+  // Put the owner's real number here, e.g. "0917 123 4567", and every Call button appears.
+  const PHONE = "";
+  if (PHONE) {
+    const tel = "tel:+63" + PHONE.replace(/\D/g, "").replace(/^0/, "");
+    document.querySelectorAll(".js-tel").forEach(a => { a.href = tel; if (!a.textContent.trim()) a.textContent = PHONE; });
+    document.querySelectorAll("[data-needs-phone]").forEach(el => el.hidden = false);
+    const cb = document.querySelector(".contact .js-tel"); if (cb) cb.textContent = "Call " + PHONE;
+  }
+
+  // highlight today's hours
+  const d = new Date().getDay(), row = document.querySelector('#hours tr[data-d="' + d + '"]');
+  if (row) { row.classList.add("today"); document.getElementById("todayHours").textContent = row.cells[1].textContent; }
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // photo viewer: native modal <dialog> (Esc, back gesture, focus return are built in)
+  const lb = document.getElementById("lightbox"), lbImg = document.getElementById("lbImg");
+  document.getElementById("gallery").addEventListener("click", e => {
+    const img = e.target.closest("button")?.querySelector("img"); if (!img) return;
+    lbImg.src = img.src; lbImg.alt = img.alt; lb.showModal();
+  });
+  // Safari has no closedby yet: close on a press + release outside the photo
+  if (!("closedBy" in HTMLDialogElement.prototype)) {
+    const outside = e => { const r = lbImg.getBoundingClientRect(); return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom; };
+    let pressedOutside = false;
+    lb.addEventListener("pointerdown", e => { pressedOutside = outside(e) && !e.target.closest("button"); });
+    lb.addEventListener("pointerup", e => { if (pressedOutside && outside(e)) lb.close(); });
+  }
+
+  // nav: inline when every link fits, otherwise a native popover menu behind the Menu button
+  const header = document.querySelector("header"), inner = header.querySelector(".nav"), menu = document.getElementById("site-menu");
+  if (!Object.hasOwn(HTMLElement.prototype, "popover")) {
+    menu.removeAttribute("popover"); header.classList.add("no-popover");
+  } else {
+    let lastWidth = 0;
+    const layout = () => {
+      const width = inner.clientWidth, wasWide = header.classList.contains("is-wide");
+      if (!wasWide && width <= lastWidth) return; // while collapsed, only remeasure when the header grows
+      lastWidth = width;
+      const wasOpen = menu.matches(":popover-open");
+      header.classList.add("is-measuring", "is-wide");
+      menu.removeAttribute("popover");
+      if (inner.scrollWidth > inner.clientWidth) {
+        header.classList.remove("is-wide");
+        menu.setAttribute("popover", "auto");
+        if (wasOpen) menu.showPopover();
+      }
+      requestAnimationFrame(() => header.classList.remove("is-measuring"));
+    };
+    const ro = new ResizeObserver(layout); ro.observe(header); ro.observe(menu);
+    layout();
+    // in-page links don't leave the page, so close the menu after a pick
+    // (closing returns focus to the Menu button, which would cancel the jump, so close first, then scroll)
+    menu.addEventListener("click", e => {
+      const link = e.target.closest('a[href^="#"]'), target = link && document.querySelector(link.hash);
+      if (!target || !menu.matches(":popover-open")) return;
+      e.preventDefault();
+      menu.hidePopover();
+      history.pushState(null, "", link.hash);
+      target.scrollIntoView();
+    });
+  }
+</script>
+</body>
+</html>
