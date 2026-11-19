@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Concept preview (Option B): keep out of Google until WJJ approves. Remove this line when it becomes their official site. -->
+<meta name="robots" content="noindex, nofollow">
+<title>WJJ Rice · Premium Mindanao rice from Norala, South Cotabato</title>
+<meta name="description" content="WJJ Enterprises and Rice Mill, Brgy. Lapuz, Norala, South Cotabato. Premium Mindanao milled rice in 25 kg sacks: Ilang-Ilang Jasmine, Premium Plus Jasmine and Tonner Banay-Banay.">
+<link rel="icon" href="assets/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Zilla+Slab:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="scrollcraft.css">
+<style>
+  :root {
+    --sc-canvas:     #F7F2E6;
+    --sc-surface:    #EFE7D3;
+    --sc-ink:        #1E1A12;
+    --sc-ink-soft:   #4F4636;
+    --sc-accent:     #7A5200;
+    --sc-accent-ink: #1E1A12;
+    --sc-font-display: "Zilla Slab", Georgia, serif;
+    --sc-font-text:    "Atkinson Hyperlegible", system-ui, sans-serif;
+    /* bigger body type: most readers are 30 to 40+ */
+    --sc-t-base: clamp(1.125rem, 1.06rem + 0.3vw, 1.3rem);
+    --gold: #F5C02A;
+    --paper: #F7F2E6; --field: #1D3A16; --night: #12170D; --sack: #A3161C;
+  }
+
+  body { font-size: var(--sc-t-base); line-height: 1.6; }
+  img { max-width: 100%; height: auto; }
+  a { text-underline-offset: 0.18em; }
+
+  /* each part sits on its own ground: hard edges, no drift */
+  .ground-paper { background: var(--paper); --sc-ink: #1E1A12; --sc-ink-soft: #4F4636; --sc-accent: #7A5200; color: var(--sc-ink); }
+  .ground-field { background: var(--field); --sc-ink: #F7F2E6; --sc-ink-soft: #D3DEC6; --sc-accent: var(--gold); color: var(--sc-ink); }
+  .ground-night { background: var(--night); --sc-ink: #F7F2E6; --sc-ink-soft: #CFC8B4; --sc-accent: var(--gold); color: var(--sc-ink); }
+  .ground-sack  { background: var(--sack);  --sc-ink: #FFF7E8; --sc-ink-soft: #F8DCCB; --sc-accent: var(--gold); color: var(--sc-ink); }
+
+  .part-no { font: 700 var(--sc-t-sm)/1 var(--sc-font-text); letter-spacing: .14em; text-transform: uppercase; color: var(--sc-accent); margin-bottom: var(--sc-5); }
+  .part-title { font-family: var(--sc-font-display); font-weight: 700; font-size: var(--sc-t-3xl); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance; }
+  .part-lede { font-size: var(--sc-t-lg); line-height: 1.5; color: var(--sc-ink-soft); max-width: 34ch; text-wrap: pretty; }
+  p { text-wrap: pretty; }
+
+  /* the one action, same label everywhere: "Message us" */
+  .cta { display: inline-flex; align-items: center; gap: .6em; min-height: 52px; padding: .7em 1.4em; border-radius: 10px;
+         background: var(--gold); color: #1E1A12; border: 2px solid #1E1A12; font: 700 1.1rem/1 var(--sc-font-text); text-decoration: none;
+         transition: transform .14s var(--sc-ease-out), background-color .14s var(--sc-ease-out); }
+  .cta svg { width: 1.2em; height: 1.2em; }
+  .cta:active { transform: translateY(1px); }
+  @media (hover: hover) and (pointer: fine) { .cta:hover { background: #FFD24D; } }
+  :where(a, button):focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; box-shadow: 0 0 0 6px #1E1A12; border-radius: 6px; }
+
+  /* ---------- title page ---------- */
+  .title { min-height: 100svh; display: grid; align-items: center; padding: var(--sc-9) 0 var(--sc-10); }
+  .title__inner { display: grid; grid-template-columns: 1.15fr .85fr; gap: var(--sc-9); align-items: end; }
+  .title__kicker { font-weight: 700; color: var(--sc-ink-soft); margin-bottom: var(--sc-5); }
+  .title h1 { position: relative; display: inline-block; white-space: nowrap; padding-right: .5em; font-family: var(--sc-font-display); font-weight: 700; font-size: clamp(3.4rem, 1.4rem + 6.6vw, 7.5rem); line-height: .95; letter-spacing: -0.02em; color: var(--sack); }
+  .title h1 img { position: absolute; width: .72em; height: .72em; right: -.12em; top: -.38em; border-radius: 50%; box-shadow: 0 10px 24px rgba(60,20,0,.25); }
+  .title__stand { font-size: var(--sc-t-lg); line-height: 1.5; max-width: 32ch; margin: var(--sc-4) 0 var(--sc-6); }
+  .contents { border-top: 2px solid var(--sc-ink); padding-top: var(--sc-5); }
+  .contents h2 { font: 700 var(--sc-t-sm)/1 var(--sc-font-text); letter-spacing: .14em; text-transform: uppercase; margin-bottom: var(--sc-4); }
+  .contents ol { list-style: none; display: grid; gap: 2px; }
+  .contents a { display: grid; grid-template-columns: 2.2em 1fr; align-items: baseline; padding: .55em 0; border-bottom: 1px solid rgba(30,26,18,.18); text-decoration: none; font-size: var(--sc-t-lg); }
+  .contents a b { font-family: var(--sc-font-display); color: var(--sack); }
+  .contents a:hover span { text-decoration: underline; }
+  @media (max-width: 860px) {
+    .title { min-height: auto; padding: var(--sc-9) 0; }
+    .title__inner { grid-template-columns: 1fr; gap: var(--sc-8); }
+  }
+
+  /* ---------- part 1 ---------- */
+  .part { padding: var(--sc-section) 0; }
+  .p1 .sc-wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: var(--sc-9); align-items: center; }
+  .p1 p + p { margin-top: var(--sc-4); }
+  .media { margin: 0; }
+  .media__frame { overflow: hidden; border-radius: 12px; aspect-ratio: 4/3; }
+  .media__frame img { display: block; width: 100%; height: 112%; max-width: none; object-fit: cover; margin-top: -6%; }
+  .media figcaption { font-size: var(--sc-t-sm); color: var(--sc-ink-soft); margin-top: var(--sc-3); }
+  @media (max-width: 860px) { .p1 .sc-wrap { grid-template-columns: 1fr; gap: var(--sc-7); } }
+
+  /* ---------- part 2: the mill (peak) ---------- */
+  .p2-open { padding: var(--sc-section) 0 var(--sc-8); }
+  .p2-open .sc-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sc-9); align-items: end; }
+  @media (max-width: 860px) { .p2-open .sc-wrap { grid-template-columns: 1fr; gap: var(--sc-7); } }
+
+  .mill [data-sc-stage] { display: grid; place-items: center; }
+  .mill__grid { width: min(1160px, 100% - 2 * var(--sc-gutter)); display: grid; grid-template-columns: 1fr 1fr; gap: var(--sc-9); align-items: center; }
+  .grain { width: 100%; max-width: min(440px, 70svh); height: auto; justify-self: center; overflow: visible; }
+  .steps { list-style: none; display: grid; gap: var(--sc-4); counter-reset: s; }
+  .steps li { counter-increment: s; display: grid; grid-template-columns: 2.6rem 1fr; gap: 0 var(--sc-4); opacity: .62; transition: opacity .25s var(--sc-ease-out); }
+  .steps li::before { content: counter(s); grid-row: span 2; width: 2.6rem; height: 2.6rem; border-radius: 50%; display: grid; place-items: center; border: 2px solid var(--gold); color: var(--gold); font: 700 1.2rem/1 var(--sc-font-display); }
+  .steps li[aria-current="step"] { opacity: 1; }
+  .steps li[aria-current="step"]::before { background: var(--gold); color: #12170D; }
+  .steps h3 { font-family: var(--sc-font-display); font-size: clamp(1.25rem, 1rem + .8vw, 1.7rem); line-height: 1.15; }
+  .steps p { color: var(--sc-ink-soft); line-height: 1.45; }
+
+  /* the milling grain: every stage is derived from this act's scroll progress */
+  .grain {
+    --dry:    clamp(0, calc((var(--sc-p, 0) - 0.04) / 0.18), 1);
+    --husk:   clamp(0, calc((var(--sc-p, 0) - 0.27) / 0.21), 1);
+    --polish: clamp(0, calc((var(--sc-p, 0) - 0.51) / 0.19), 1);
+    --pack:   clamp(0, calc((var(--sc-p, 0) - 0.75) / 0.17), 1);
+  }
+  .grain * { transform-box: fill-box; transform-origin: center; }
+  .g-green { opacity: calc(1 - var(--dry)); }
+  .g-hull-l { transform: translate(calc(var(--husk) * -78px), calc(var(--husk) * 70px)) rotate(calc(var(--husk) * -38deg)); opacity: calc(1 - var(--husk)); }
+  .g-hull-r { transform: translate(calc(var(--husk) * 78px), calc(var(--husk) * 70px)) rotate(calc(var(--husk) * 38deg)); opacity: calc(1 - var(--husk)); }
+  .g-bran { opacity: calc(1 - var(--polish)); }
+  .g-shine { opacity: calc(var(--polish) * .9); }
+  .g-kernel { transform: translateY(calc(var(--pack) * 150px)) scale(calc(1 - var(--pack) * .72)); }
+  .g-kernel-fade { opacity: calc(1 - max(0, var(--pack) - .7) * 3.3); }
+  .g-sack { opacity: var(--pack); transform: translateY(calc((1 - var(--pack)) * 24px)); }
+  .g-tag { font: 700 22px var(--sc-font-display); fill: #FFF7E8; }
+  .g-tag2 { font: 700 15px var(--sc-font-text); fill: #FFF7E8; letter-spacing: .08em; }
+  .g-label { font: 700 15px var(--sc-font-text); fill: #CFC8B4; letter-spacing: .06em; }
+
+  .mill-static { display: none; }
+  @media (max-width: 860px) {
+    .mill__grid { grid-template-columns: 1fr; gap: var(--sc-4); padding-bottom: 54px; }
+    .grain { max-width: min(250px, 30svh); }
+    .steps { gap: var(--sc-2); }
+    .steps li { grid-template-columns: 2.1rem 1fr; align-items: center; }
+    .steps li::before { grid-row: auto; width: 2.1rem; height: 2.1rem; font-size: 1rem; }
+    .steps li p { grid-column: 2; }
+    .steps h3 { font-size: 1.2rem; }
+    .steps p { font-size: 1.02rem; line-height: 1.4; }
+    /* on a phone only the current step keeps its sentence, so all four steps fit on one screen */
+    .steps li:not([aria-current]) p { display: none; }
+  }
+  @media (max-width: 860px) and (prefers-reduced-motion: reduce) { .steps li p { display: block !important; } }
+
+  /* reduced motion: no pinning, show the four stages side by side */
+  @media (prefers-reduced-motion: reduce) {
+    .mill { height: auto !important; padding: 0 0 var(--sc-section); }
+    .mill [data-sc-stage] { position: static; height: auto; }
+    .mill .grain--live { display: none; }
+    .mill__grid { grid-template-columns: 1fr; }
+    .mill-static { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sc-4); max-width: 620px; margin-top: var(--sc-7); }
+    .mill-static svg { width: 100%; height: auto; }
+    .steps li { opacity: 1; }
+  }
+
+  /* ---------- part 3: the rice ---------- */
+  .p3 .rice { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sc-9) var(--sc-9); margin-top: var(--sc-9); }
+  .sackcard { display: grid; grid-template-columns: minmax(150px, .8fr) 1fr; gap: var(--sc-6); align-items: center; }
+  .sackcard--lead { grid-row: span 2; grid-template-columns: 1fr; align-items: start; }
+  .sackcard--lead figure { max-width: 360px; }
+  .sackcard figure { margin: 0; border-radius: 12px; overflow: hidden; background: #E9DFC6; box-shadow: 0 14px 30px -12px rgba(60,40,10,.35); }
+  .sackcard img { display: block; width: 100%; height: auto; }
+  .sackcard h3 { font-family: var(--sc-font-display); font-size: var(--sc-t-2xl); line-height: 1.05; color: var(--sack); }
+  .label { margin-top: var(--sc-3); display: grid; gap: 2px; }
+  .label div { display: grid; grid-template-columns: 6.5em 1fr; border-bottom: 1px solid rgba(30,26,18,.16); padding: .35em 0; }
+  .label dt { color: var(--sc-ink-soft); }
+  .label dd { font-weight: 700; }
+  .new { display: inline-block; font: 700 .85rem/1 var(--sc-font-text); letter-spacing: .1em; text-transform: uppercase; background: var(--gold); color: #1E1A12; padding: .45em .7em; border-radius: 6px; margin-bottom: var(--sc-3); }
+  @media (max-width: 860px) {
+    .p3 .rice { grid-template-columns: 1fr; gap: var(--sc-8); }
+    .sackcard, .sackcard--lead { grid-row: auto; grid-template-columns: 1fr; gap: var(--sc-4); align-items: start; }
+    .sackcard figure, .sackcard--lead figure { max-width: 190px; }
+    .sackcard h3 { font-size: var(--sc-t-xl); }
+    .sackcard > div { min-width: 0; }
+  }
+
+  /* ---------- part 4: bulk ---------- */
+  .p4 .sc-wrap { display: grid; grid-template-columns: 240px 1fr; gap: var(--sc-9); align-items: center; }
+  .p4 .stacks { border-radius: 12px; overflow: hidden; box-shadow: 0 18px 40px -16px rgba(40,0,0,.5); }
+  .p4 .stacks img { display: block; width: 100%; height: auto; }
+  .big { font-family: var(--sc-font-display); font-weight: 700; font-size: clamp(5rem, 3rem + 9vw, 10rem); line-height: .9; color: var(--gold); }
+  .big small { display: block; font: 700 var(--sc-t-lg)/1.3 var(--sc-font-text); color: var(--sc-ink); margin-top: var(--sc-3); }
+  .p4 ol { margin: var(--sc-7) 0 var(--sc-8); padding-left: 1.4em; display: grid; gap: var(--sc-3); }
+  .p4 ol li::marker { font-family: var(--sc-font-display); font-weight: 700; color: var(--gold); }
+  @media (max-width: 860px) {
+    .p4 .sc-wrap { grid-template-columns: 1fr; gap: var(--sc-7); }
+    .p4 .stacks { max-width: 200px; order: 2; }
+  }
+
+  /* ---------- part 5: order and visit (colophon) ---------- */
+  .p5 { padding: var(--sc-section) 0 var(--sc-9); border-top: 2px solid var(--sc-ink); }
+  .p5 .order { font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.3rem); font-family: var(--sc-font-display); font-weight: 700; line-height: 1.2; max-width: 26ch; margin: var(--sc-5) 0 var(--sc-9); text-wrap: balance; }
+  .p5 .order a { color: var(--sack); text-decoration-thickness: 3px; }
+  .visit { display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: var(--sc-8); }
+  .visit h3 { font: 700 var(--sc-t-sm)/1 var(--sc-font-text); letter-spacing: .14em; text-transform: uppercase; color: var(--sc-accent); margin-bottom: var(--sc-4); }
+  .hours { border-collapse: collapse; width: 100%; }
+  .hours td { padding: .3em 0; border-bottom: 1px solid rgba(30,26,18,.14); }
+  .hours td + td { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .hours tr.today td { color: var(--sack); }
+  .note { font-size: var(--sc-t-sm); color: var(--sc-ink-soft); margin-top: var(--sc-3); }
+  .map { border: 0; width: 100%; height: 260px; border-radius: 12px; background: var(--sc-surface); }
+  .visit a { color: var(--sack); font-weight: 700; }
+  .colophon { margin-top: var(--sc-10); padding-top: var(--sc-5); border-top: 1px solid rgba(30,26,18,.2); display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sc-3); font-size: var(--sc-t-sm); color: var(--sc-ink-soft); }
+  .colophon a { color: inherit; font-weight: 700; }
+  @media (max-width: 960px) { .visit { grid-template-columns: 1fr; } }
+
+  /* ---------- folio: where you are, plus the one action ---------- */
+  .folio { position: fixed; z-index: 40; left: 0; right: 0; bottom: 0; pointer-events: none; display: flex; justify-content: space-between; align-items: end; padding: 0 var(--sc-5) var(--sc-5); }
+  .folio > * { pointer-events: auto; }
+  .folio__here { display: inline-flex; align-items: center; gap: .55em; min-height: 48px; padding: .55em 1em; border-radius: 10px; background: var(--paper); color: #1E1A12; border: 2px solid #1E1A12; text-decoration: none; font-weight: 700; box-shadow: 0 8px 20px -10px rgba(0,0,0,.45); opacity: 0; transform: translateY(8px); transition: opacity .2s var(--sc-ease-out), transform .2s var(--sc-ease-out); }
+  .folio__here b { font-family: var(--sc-font-display); color: var(--sack); }
+  .folio.is-on .folio__here { opacity: 1; transform: none; }
+  .folio .cta { box-shadow: 0 8px 20px -10px rgba(0,0,0,.45); }
+  @media (min-width: 701px) { .folio:not(.is-on) .cta { visibility: hidden; opacity: 0; } .folio .cta { transition: opacity .2s var(--sc-ease-out), visibility .2s; } }
+  @media (max-width: 700px) {
+    .folio { padding: 0; gap: 0; background: var(--paper); border-top: 2px solid #1E1A12; align-items: stretch; }
+    .folio__here { flex: 1; min-width: 0; border: 0; border-radius: 0; box-shadow: none; font-size: .95rem; opacity: 1; transform: none; white-space: nowrap; overflow: hidden; }
+    .folio__here span { overflow: hidden; text-overflow: ellipsis; }
+    .folio .cta { border-radius: 0; border-width: 0 0 0 2px; box-shadow: none; }
+    body { padding-bottom: 54px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .folio__here { transition: none; } }
+</style>
+</head>
+<body>
+
+<main id="top">
+
+  <!-- TITLE PAGE -->
+  <header class="title ground-paper" id="contents">
+    <div class="sc-wrap title__inner" data-sc-in data-sc-stagger="60">
+      <div>
+        <p class="title__kicker">WJJ Enterprises and Rice Mill · Norala, South Cotabato</p>
+        <h1>WJJ Rice<img src="assets/logo.webp" width="360" height="360" alt="" fetchpriority="high"></h1>
+        <p class="title__stand">Premium Mindanao rice, milled at our own rice mill and sold in 25 kg sacks. Basta WJJ Rice, doble ang smile!</p>
+        <a class="cta" href="https://m.me/WJJRICEMILL" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.2-4.5A9 9 0 1 1 21 12z"/></svg>Message us</a>
+      </div>
+      <nav class="contents" aria-label="Contents">
+        <h2>In this page</h2>
+        <ol>
+          <li><a href="#part-1"><b>1</b><span>Where our rice comes from</span></a></li>
+          <li><a href="#part-2"><b>2</b><span>How we mill it</span></a></li>
+          <li><a href="#part-3"><b>3</b><span>Pick your rice</span></a></li>
+          <li><a href="#part-4"><b>4</b><span>Buying in bulk</span></a></li>
+          <li><a href="#part-5"><b>5</b><span>Order and visit</span></a></li>
+        </ol>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PART 1 · rooted, calm -->
+  <section class="part p1 ground-field" id="part-1" data-part="1" data-title="Where our rice comes from" data-sc-act="flow">
+    <div class="sc-wrap">
+      <div class="sc-stack" data-sc-in data-sc-stagger="70">
+        <p class="part-no">Part 1 of 5</p>
+        <h2 class="part-title">Where our rice comes from</h2>
+        <p class="part-lede">Our rice mill is in Barangay Lapuz, Norala, South Cotabato, known as the Rice Bowl of the South.</p>
+        <p>We also sell at WJJ Buy and Sell on the National Highway in Isulan, Sultan Kudarat.</p>
+      </div>
+      <figure class="media">
+        <div class="media__frame"><img src="assets/mill-compound.webp" width="1400" height="1050" alt="The WJJ rice mill compound in Norala at sunset" loading="lazy" data-sc-parallax="-0.6"></div>
+        <figcaption>The WJJ rice mill compound, Brgy. Lapuz, Norala.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- PART 2 · the peak: opener, then the milling grain -->
+  <div class="ground-night" id="part-2" data-part="2" data-title="How we mill it">
+    <div class="p2-open">
+      <div class="sc-wrap">
+        <div class="sc-stack" data-sc-in data-sc-stagger="70">
+          <p class="part-no">Part 2 of 5</p>
+          <h2 class="part-title">How we mill it</h2>
+          <p class="part-lede">From palay to the white rice on your plate, in four steps. Keep scrolling to watch one grain go through the mill.</p>
+        </div>
+        <figure class="media" data-sc-in>
+          <div class="media__frame"><img src="assets/mill-dryers.webp" width="1400" height="1050" alt="Large yellow grain dryers inside the WJJ rice mill, with a red truck parked beside them" loading="lazy"></div>
+          <figcaption>The grain dryers inside our rice mill.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <section class="mill" data-sc-act="pin" data-sc-span="3.6" aria-label="Milling one grain of rice, step by step">
+      <div data-sc-stage>
+        <div class="mill__grid">
+          <svg class="grain grain--live" viewBox="0 0 320 400" role="img" aria-label="A grain of palay being dried, husked, polished and packed into a 25 kg sack">
+            <g class="g-kernel">
+              <g class="g-kernel-fade">
+                <!-- white rice -->
+                <path d="M160 40 C200 44 214 110 212 150 C210 205 190 238 160 242 C130 238 110 205 108 150 C106 110 120 44 160 40Z" fill="#FBF8EE"/>
+                <path class="g-shine" d="M140 70 C128 100 124 140 128 180" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" fill="none"/>
+                <!-- brown bran layer -->
+                <path class="g-bran" d="M160 40 C200 44 214 110 212 150 C210 205 190 238 160 242 C130 238 110 205 108 150 C106 110 120 44 160 40Z" fill="#9C6B3A"/>
+              </g>
+            </g>
+            <!-- husk, two halves -->
+            <g class="g-hull-l">
+              <path d="M160 18 C108 26 90 100 92 150 C94 214 122 258 160 264 Z" fill="#D9A532"/>
+              <path class="g-green" d="M160 18 C108 26 90 100 92 150 C94 214 122 258 160 264 Z" fill="#9FAE3F"/>
+              <path d="M140 40 C120 90 116 160 132 236 M120 70 C108 120 108 180 118 220" stroke="#8C6512" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>
+            </g>
+            <g class="g-hull-r">
+              <path d="M160 18 C212 26 230 100 228 150 C226 214 198 258 160 264 Z" fill="#E3B23C"/>
+              <path class="g-green" d="M160 18 C212 26 230 100 228 150 C226 214 198 258 160 264 Z" fill="#A9B846"/>
+              <path d="M180 40 C200 90 204 160 188 236 M200 70 C212 120 212 180 202 220" stroke="#8C6512" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>
+            </g>
+            <!-- the 25 kg sack -->
+            <g class="g-sack">
+              <path d="M96 300 C92 288 104 280 116 284 L204 284 C216 280 228 288 224 300 L236 386 C238 396 230 400 220 400 L100 400 C90 400 82 396 84 386 Z" fill="#C8202A"/>
+              <path d="M110 286 C130 296 190 296 210 286" stroke="#7D0F14" stroke-width="4" fill="none"/>
+              <text class="g-tag" x="160" y="344" text-anchor="middle">WJJ</text>
+              <text class="g-tag2" x="160" y="370" text-anchor="middle">25 KG</text>
+            </g>
+          </svg>
+
+          <div>
+            <ol class="steps" id="steps">
+              <li aria-current="step"><h3>Dry</h3><p>Fresh palay goes into our grain dryers first.</p></li>
+              <li><h3>Remove the husk</h3><p>The hard outer husk comes off. What is left is brown rice.</p></li>
+              <li><h3>Polish</h3><p>The brown bran layer is polished away, leaving white rice.</p></li>
+              <li><h3>Pack</h3><p>The rice goes into 25 kg WJJ sacks, ready for you.</p></li>
+            </ol>
+            <div class="mill-static" id="millStatic" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PART 3 · choice -->
+  <section class="part p3 ground-paper" id="part-3" data-part="3" data-title="Pick your rice" data-sc-act="flow">
+    <div class="sc-wrap">
+      <div class="sc-stack" data-sc-in data-sc-stagger="70">
+        <p class="part-no">Part 3 of 5</p>
+        <h2 class="part-title">Pick your rice</h2>
+        <p class="part-lede">Three kinds, all in 25 kg sacks. Prices change with the harvest, so message us for today's price.</p>
+      </div>
+      <!-- Prices are not posted on WJJ's page. Ask the owner, then replace "Message us". -->
+      <div class="rice">
+        <article class="sackcard sackcard--lead">
+          <figure data-sc-reveal="up" data-sc-reveal-at="0.04 0.3"><img src="assets/sack-ilang.webp" width="540" height="1018" alt="Red WJJ Ilang-Ilang V-160 Jasmine Rice sack, 25 kg" loading="lazy"></figure>
+          <div>
+            <span class="new">Newest</span>
+            <h3>Ilang-Ilang Jasmine</h3>
+            <dl class="label">
+              <div><dt>Variety</dt><dd>V-160 Jasmine</dd></div>
+              <div><dt>Grade</dt><dd>Premium Quality</dd></div>
+              <div><dt>Sack</dt><dd>25 kg</dd></div>
+              <div><dt>Price</dt><dd><a href="https://m.me/WJJRICEMILL" target="_blank" rel="noopener">Message us</a></dd></div>
+            </dl>
+          </div>
+        </article>
+        <article class="sackcard">
+          <figure data-sc-reveal="up" data-sc-reveal-at="0.12 0.4"><img src="assets/sack-premium.webp" width="430" height="488" alt="Green and red WJJ Premium Plus V-160 Jasmine Rice sack, 25 kg" loading="lazy"></figure>
+          <div>
+            <h3>Premium Plus Jasmine</h3>
+            <dl class="label">
+              <div><dt>Variety</dt><dd>V-160 Jasmine</dd></div>
+              <div><dt>Grade</dt><dd>Premium Plus</dd></div>
+              <div><dt>Sack</dt><dd>25 kg</dd></div>
+              <div><dt>Price</dt><dd><a href="https://m.me/WJJRICEMILL" target="_blank" rel="noopener">Message us</a></dd></div>
+            </dl>
+          </div>
+        </article>
+        <article class="sackcard">
+          <figure data-sc-reveal="up" data-sc-reveal-at="0.22 0.5"><img src="assets/sack-tonner.webp" width="410" height="488" alt="Yellow WJJ Tonner Banay-Banay Rice sack, 25 kg" loading="lazy"></figure>
+          <div>
+            <h3>Tonner Banay-Banay</h3>
+            <dl class="label">
+              <div><dt>Variety</dt><dd>Tonner</dd></div>
+              <div><dt>Grade</dt><dd>Premium Quality</dd></div>
+              <div><dt>Sack</dt><dd>25 kg</dd></div>
+              <div><dt>Price</dt><dd><a href="https://m.me/WJJRICEMILL" target="_blank" rel="noopener">Message us</a></dd></div>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PART 4 · opportunity (no act: the counter fires once on entry) -->
+  <section class="part p4 ground-sack" id="part-4" data-part="4" data-title="Buying in bulk">
+    <div class="sc-wrap">
+      <figure class="stacks"><img src="assets/stacks.webp" width="230" height="540" alt="Sacks of WJJ rice stacked high in the warehouse" loading="lazy"></figure>
+      <div class="sc-stack" data-sc-in data-sc-stagger="70">
+        <p class="part-no">Part 4 of 5</p>
+        <h2 class="part-title">Buying in bulk?</h2>
+        <p class="big"><span data-sc-count="0 200" data-sc-count-ms="1500">200</span><small>sacks minimum (25 kg each) for our special walk-in wholesale price</small></p>
+        <ol>
+          <li>Message us which rice you want and how many sacks.</li>
+          <li>We send you our wholesale quote.</li>
+          <li>Pick up your order at the rice mill in Brgy. Lapuz, Norala.</li>
+        </ol>
+        <p><a class="cta" href="https://m.me/WJJRICEMILL" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.2-4.5A9 9 0 1 1 21 12z"/></svg>Message us</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PART 5 · resolve: the colophon -->
+  <section class="p5 ground-paper" id="part-5" data-part="5" data-title="Order and visit">
+    <div class="sc-wrap">
+      <p class="part-no">Part 5 of 5</p>
+      <h2 class="part-title">Order and visit</h2>
+      <p class="order">To order, <a href="https://m.me/WJJRICEMILL" target="_blank" rel="noopener">message us on Facebook</a>. Tell us the rice and how many sacks.</p>
+      <div class="visit">
+        <div>
+          <h3>The rice mill</h3>
+          <p>WJJ Enterprises<br>Brgy. Lapuz, Norala<br>South Cotabato 9508</p>
+          <p style="margin-top:var(--sc-4)"><a href="https://www.google.com/maps/dir/?api=1&destination=6.5196146,124.635027" target="_blank" rel="noopener">Get directions</a></p>
+          <h3 style="margin-top:var(--sc-7)">Also at</h3>
+          <p>WJJ Buy and Sell<br>National Highway, Isulan<br>Sultan Kudarat</p>
+        </div>
+        <div>
+          <h3>Open every day</h3>
+          <!-- Hours from Google Maps (Nov 2026). Confirm with the owner. -->
+          <table class="hours" id="hours">
+            <tr data-d="1"><td>Monday</td><td>8:00 AM to 5:30 PM</td></tr>
+            <tr data-d="2"><td>Tuesday</td><td>8:00 AM to 5:30 PM</td></tr>
+            <tr data-d="3"><td>Wednesday</td><td>8:00 AM to 5:30 PM</td></tr>
+            <tr data-d="4"><td>Thursday</td><td>8:30 AM to 5:30 PM</td></tr>
+            <tr data-d="5"><td>Friday</td><td>8:30 AM to 5:30 PM</td></tr>
+            <tr data-d="6"><td>Saturday</td><td>8:30 AM to 5:30 PM</td></tr>
+            <tr data-d="0"><td>Sunday</td><td>8:00 AM to 5:30 PM</td></tr>
+          </table>
+          <h3 style="margin-top:var(--sc-7)">Tried our rice?</h3>
+          <p><a href="https://search.google.com/local/writereview?placeid=ChIJcTsJd3AF-DIRFXaxGGg4Qsg" target="_blank" rel="noopener">Write a Google review</a></p>
+        </div>
+        <div>
+          <iframe class="map" title="WJJ rice mill on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=WJJ%20Enterprises%20and%20Rice%20Mill%2C%20Norala%2C%20South%20Cotabato&ll=6.5196146,124.635027&z=15&output=embed"></iframe>
+        </div>
+      </div>
+      <footer class="colophon">
+        <span>© <span id="yr">2026</span> WJJ Enterprises and Rice Mill · Norala, South Cotabato</span>
+        <span>Watermark by <a href="https://kendamin.github.io" target="_blank" rel="noopener">Ken Abuda</a></span>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<aside class="folio" id="folio" aria-label="Where you are">
+  <a class="folio__here" href="#contents" id="folioHere"><b id="folioNo">Part 1 of 5</b><span id="folioTitle">Where our rice comes from</span></a>
+  <a class="cta" href="https://m.me/WJJRICEMILL" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.2-4.5A9 9 0 1 1 21 12z"/></svg>Message us</a>
+</aside>
+
+<script src="scrollcraft.js"></script>
+<script>
+  ScrollCraft.mount(document.body);
+
+  // today's hours
+  const today = document.querySelector('#hours tr[data-d="' + new Date().getDay() + '"]');
+  if (today) today.classList.add("today");
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // folio: which part you are reading
+  const folio = document.getElementById("folio"), fNo = document.getElementById("folioNo"), fTitle = document.getElementById("folioTitle");
+  const parts = [...document.querySelectorAll("[data-part]")];
+  const setPart = el => {
+    if (!el) { folio.classList.remove("is-on"); fNo.textContent = "WJJ Rice"; fTitle.textContent = "Contents"; return; }
+    folio.classList.add("is-on");
+    fNo.textContent = "Part " + el.dataset.part + " of 5";
+    fTitle.textContent = el.dataset.title;
+  };
+  const onScroll = () => {
+    const mid = innerHeight * 0.5;
+    let cur = null;
+    for (const p of parts) { const r = p.getBoundingClientRect(); if (r.top <= mid && r.bottom > mid) cur = p; }
+    setPart(cur);
+  };
+  addEventListener("scroll", onScroll, { passive: true });
+  addEventListener("resize", onScroll);
+  setPart(null); onScroll();
+
+  // signature: the milling grain. The CSS draws it from --sc-p; this marks the step.
+  const mill = document.querySelector(".mill"), steps = [...document.querySelectorAll("#steps li")];
+  if (ScrollCraft.reduce) {
+    // four stages side by side instead of a scrolled sequence
+    const live = mill.querySelector(".grain--live"), box = document.getElementById("millStatic");
+    [0.24, 0.5, 0.72, 1].forEach(p => {
+      const c = live.cloneNode(true);
+      c.classList.remove("grain--live"); c.removeAttribute("role"); c.removeAttribute("aria-label");
+      c.style.setProperty("--sc-p", p);
+      box.appendChild(c);
+    });
+    steps.forEach(li => li.removeAttribute("aria-current"));
+  } else {
+    let last = -1, visible = false;
+    new IntersectionObserver(e => { visible = e[0].isIntersecting; if (visible) tick(); }).observe(mill);
+    const tick = () => {
+      if (!visible) return;
+      const p = parseFloat(mill.style.getPropertyValue("--sc-p")) || 0;
+      const i = p < 0.27 ? 0 : p < 0.51 ? 1 : p < 0.75 ? 2 : 3;
+      if (i !== last) { steps.forEach((li, n) => n === i ? li.setAttribute("aria-current", "step") : li.removeAttribute("aria-current")); last = i; }
+      requestAnimationFrame(tick);
+    };
+  }
+</script>
+</body>
+</html>
