@@ -10,7 +10,7 @@
 <link rel="icon" href="assets/logo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Zilla+Slab:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Atkinson+Hyperlegible:wght@400;700&family=Zilla+Slab:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="scrollcraft.css">
 <style>
   :root {
@@ -52,23 +52,49 @@
   @media (hover: hover) and (pointer: fine) { .cta:hover { background: #FFD24D; } }
   :where(a, button):focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; box-shadow: 0 0 0 6px #1E1A12; border-radius: 6px; }
 
-  /* ---------- title page ---------- */
-  .title { min-height: 100svh; display: grid; align-items: center; padding: var(--sc-9) 0 var(--sc-10); }
-  .title__inner { display: grid; grid-template-columns: 1.15fr .85fr; gap: var(--sc-9); align-items: end; }
-  .title__kicker { font-weight: 700; color: var(--sc-ink-soft); margin-bottom: var(--sc-5); }
-  .title h1 { position: relative; display: inline-block; white-space: nowrap; padding-right: .5em; font-family: var(--sc-font-display); font-weight: 700; font-size: clamp(3.4rem, 1.4rem + 6.6vw, 7.5rem); line-height: .95; letter-spacing: -0.02em; color: var(--sack); }
-  .title h1 img { position: absolute; width: .72em; height: .72em; right: -.12em; top: -.38em; border-radius: 50%; box-shadow: 0 10px 24px rgba(60,20,0,.25); }
-  .title__stand { font-size: var(--sc-t-lg); line-height: 1.5; max-width: 32ch; margin: var(--sc-4) 0 var(--sc-6); }
-  .contents { border-top: 2px solid var(--sc-ink); padding-top: var(--sc-5); }
+  /* ---------- hero: Option A's red sunburst concept, in layers ---------- */
+  .hero { position: relative; overflow: hidden; color: #fff; padding: var(--sc-10) 0 var(--sc-11);
+    background:
+      radial-gradient(closest-side at 72% 45%, rgba(255,214,90,.35), transparent 70%),
+      repeating-conic-gradient(from 0deg at 72% 45%, #D8232A 0deg 6deg, #C41C22 6deg 12deg); }
+  .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 64px; background: var(--paper); clip-path: ellipse(75% 100% at 50% 100%); }
+  .hero__grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr .9fr; gap: var(--sc-9); align-items: center; }
+  .hero h1 { font: 400 clamp(5rem, 2.4rem + 11vw, 9.5rem)/.9 "Alfa Slab One", var(--sc-font-display); color: var(--gold); -webkit-text-stroke: 3px #5E0A0E; paint-order: stroke fill; text-shadow: 0 6px 0 #5E0A0E; }
+  .hero .sc-stack { gap: 0; }
+  .hero h1 { margin: 0; }
+  .hero__sub { font: 700 clamp(1rem, .8rem + .8vw, 1.3rem)/1.2 var(--sc-font-text); letter-spacing: .16em; text-transform: uppercase; margin: var(--sc-4) 0 var(--sc-5); }
+  .smile { display: inline-block; font: 400 clamp(1.25rem, .9rem + 1.4vw, 1.8rem)/1.2 "Alfa Slab One", var(--sc-font-display); background: var(--gold); color: #5E0A0E; padding: .35em .75em; border-radius: 10px; transform: rotate(-1.5deg); box-shadow: 0 6px 0 #5E0A0E; margin-bottom: var(--sc-5); }
+  .hero__lede { font-size: var(--sc-t-lg); line-height: 1.5; max-width: 34ch; color: #FFF7E8; }
+  .checks { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sc-3); margin: var(--sc-5) 0 var(--sc-7); }
+  .checks li { font-weight: 700; padding: .45em .9em; border-radius: 999px; background: rgba(94,10,14,.5); border: 1px solid rgba(255,255,255,.28); }
+  .checks li::before { content: "✓ "; color: var(--gold); }
+  .hero__ctas { display: flex; flex-wrap: wrap; gap: var(--sc-4); }
+  .cta--line { background: transparent; color: #fff; border-color: #fff; }
+  @media (hover: hover) and (pointer: fine) { .cta--line:hover { background: rgba(255,255,255,.12); } }
+  .hero__photo { position: relative; justify-self: center; width: 100%; max-width: 440px; }
+  .hero__frame { border-radius: 22px; overflow: hidden; border: 6px solid #fff; box-shadow: 0 30px 70px rgba(60,0,0,.45); transform: rotate(2deg); aspect-ratio: 4/5; background: #fff; }
+  .hero__frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .seal { position: absolute; left: -26px; bottom: 28px; width: 118px; height: 118px; border-radius: 50%; background: var(--gold); color: #5E0A0E; display: grid; place-items: center; text-align: center; font: 400 15px/1.1 "Alfa Slab One", var(--sc-font-display); box-shadow: 0 14px 30px rgba(60,0,0,.35); border: 4px dashed #5E0A0E; }
+  .seal span { transform: rotate(-10deg); }
+  .seal b { display: block; font-size: 30px; font-weight: 400; }
+  @media (max-width: 900px) {
+    .hero { padding-top: var(--sc-9); }
+    .hero__grid { grid-template-columns: 1fr; }
+    .hero__photo { max-width: 340px; }
+    .seal { left: -8px; width: 100px; height: 100px; font-size: 13px; }
+    .seal b { font-size: 26px; }
+    .checks { gap: var(--sc-2); }
+    .checks li { font-size: .95rem; padding: .35em .75em; }
+  }
+
+  /* contents, right under the hero */
+  .contents { padding: var(--sc-7) 0 var(--sc-8); }
   .contents h2 { font: 700 var(--sc-t-sm)/1 var(--sc-font-text); letter-spacing: .14em; text-transform: uppercase; margin-bottom: var(--sc-4); }
-  .contents ol { list-style: none; display: grid; gap: 2px; }
-  .contents a { display: grid; grid-template-columns: 2.2em 1fr; align-items: baseline; padding: .55em 0; border-bottom: 1px solid rgba(30,26,18,.18); text-decoration: none; font-size: var(--sc-t-lg); }
+  .contents ol { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--sc-4); padding-left: 0; border-top: 2px solid var(--sc-ink); padding-top: var(--sc-4); }
+  .contents a { display: grid; grid-template-columns: 1.8em 1fr; align-items: baseline; padding: .4em 0; text-decoration: none; font-size: var(--sc-t-lg); line-height: 1.3; }
   .contents a b { font-family: var(--sc-font-display); color: var(--sack); }
   .contents a:hover span { text-decoration: underline; }
-  @media (max-width: 860px) {
-    .title { min-height: auto; padding: var(--sc-9) 0; }
-    .title__inner { grid-template-columns: 1fr; gap: var(--sc-8); }
-  }
+  @media (max-width: 960px) { .contents ol { grid-template-columns: 1fr; gap: 0; } .contents a { border-bottom: 1px solid rgba(30,26,18,.16); padding: .6em 0; } }
 
   /* ---------- part 1 ---------- */
   .part { padding: var(--sc-section) 0; }
@@ -215,15 +241,31 @@
 
 <main id="top">
 
-  <!-- TITLE PAGE -->
-  <header class="title ground-paper" id="contents">
-    <div class="sc-wrap title__inner" data-sc-in data-sc-stagger="60">
-      <div>
-        <p class="title__kicker">WJJ Enterprises and Rice Mill · Norala, South Cotabato</p>
-        <h1>WJJ Rice<img src="assets/logo.webp" width="360" height="360" alt="" fetchpriority="high"></h1>
-        <p class="title__stand">Premium Mindanao rice, milled at our own rice mill and sold in 25 kg sacks. Basta WJJ Rice, doble ang smile!</p>
-        <a class="cta" href="https://m.me/WJJRICEMILL" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.2-4.5A9 9 0 1 1 21 12z"/></svg>Message us</a>
+  <!-- HERO: Option A's concept. Layers: sunburst ground, photo frame (lags), 25 kg seal (leads), type at 1x -->
+  <header class="hero" data-sc-act="flow">
+    <div class="sc-wrap hero__grid">
+      <div class="sc-stack" data-sc-in data-sc-stagger="60">
+        <h1>WJJ</h1>
+        <p class="hero__sub">Enterprises &amp; Rice Mill</p>
+        <p><span class="smile">Basta WJJ Rice, Doble ang Smile!</span></p>
+        <p class="hero__lede">Excellent eating-quality Mindanao milled rice, direct from our rice mill in Norala, South Cotabato, the Rice Bowl of the South.</p>
+        <ul class="checks" aria-label="Our rice">
+          <li>New harvest</li><li>100% local rice</li><li>Premium quality</li>
+        </ul>
+        <div class="hero__ctas">
+          <a class="cta" href="https://m.me/WJJRICEMILL" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.2-4.5A9 9 0 1 1 21 12z"/></svg>Message us</a>
+          <a class="cta cta--line" href="#part-3">See our rice</a>
+        </div>
       </div>
+      <div class="hero__photo">
+        <div data-sc-parallax="-0.5"><div class="hero__frame"><img src="assets/hero-ilang.webp" width="864" height="1080" alt="WJJ Ilang-Ilang V-160 Jasmine Rice 25 kg sack beside a bowl of milled rice" fetchpriority="high"></div></div>
+        <div class="seal" data-sc-parallax="0.6" aria-hidden="true"><span><b>25 kg</b>sacks</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="ground-paper" id="contents">
+    <div class="sc-wrap">
       <nav class="contents" aria-label="Contents">
         <h2>In this page</h2>
         <ol>
@@ -235,7 +277,7 @@
         </ol>
       </nav>
     </div>
-  </header>
+  </div>
 
   <!-- PART 1 · rooted, calm -->
   <section class="part p1 ground-field" id="part-1" data-part="1" data-title="Where our rice comes from" data-sc-act="flow">
