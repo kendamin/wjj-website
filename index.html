@@ -262,6 +262,31 @@
     .msg-inner{padding-bottom:max(22px,env(safe-area-inset-bottom))}
   }
 </style>
+<!-- GoatCounter: counts visits and Message/Call/Book taps (dashboard: kenabuda.goatcounter.com) -->
+<script data-goatcounter="https://kenabuda.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script>
+document.addEventListener('click', function (e) {
+  var el = e.target.closest && e.target.closest('a, button');
+  if (!el || !window.goatcounter || !window.goatcounter.count) return;
+  var href = (el.getAttribute('href') || '').toLowerCase();
+  var text = (el.textContent || '').trim().toLowerCase();
+  var kind =
+    /^fb-messenger:|m\.me\/|messenger\.com/.test(href) ? 'Message' :
+    /^tel:/.test(href) ? 'Call' :
+    /^sms:/.test(href) ? 'Text' :
+    /wa\.me\//.test(href) ? 'WhatsApp' :
+    /google\.[a-z.]+\/maps|maps\.app\.goo\.gl|goo\.gl\/maps|maps\.google/.test(href) ? 'Directions' :
+    /shopee\.|lazada\./.test(href) ? 'Shop' :
+    /instagram\.com/.test(href) ? 'Instagram' :
+    /facebook\.com/.test(href) ? 'Facebook' :
+    /book|reserve|trial|inquire|inquiry/.test(text) ? 'Book' :
+    /^message|messenger/.test(text) ? 'Message' : '';
+  if (!kind) return;
+  var site = location.pathname.replace(/index\.html$/, '').replace(/^\/|\/$/g, '') || 'home';
+  var popup = el.closest('dialog') ? ' (popup)' : '';
+  window.goatcounter.count({ path: site + ': ' + kind + popup, title: text.slice(0, 60), event: true });
+}, true);
+</script>
 </head>
 <body>
 
